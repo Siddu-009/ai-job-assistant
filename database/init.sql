@@ -28,3 +28,11 @@ CREATE TABLE IF NOT EXISTS jobs (
     apply_url TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS applications (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER,
+    job_id INTEGER,
+    status VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
