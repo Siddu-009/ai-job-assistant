@@ -1,6 +1,30 @@
-DROP TABLE IF EXISTS resumes;
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(255) UNIQUE,
+    password VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
-CREATE TABLE resumes (
+CREATE TABLE IF NOT EXISTS resumes (
     id SERIAL PRIMARY KEY,
     filename VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS generated_resumes (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER,
+    job_description TEXT,
+    generated_resume TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS jobs (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255),
+    company VARCHAR(255),
+    location VARCHAR(255),
+    skills TEXT,
+    apply_url TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

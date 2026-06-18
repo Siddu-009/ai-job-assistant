@@ -1,6 +1,7 @@
 import fitz
 
-def extract_text_from_pdf(pdf_path):
+def extract_text(pdf_path):
+
     doc = fitz.open(pdf_path)
 
     text = ""
@@ -8,4 +9,11 @@ def extract_text_from_pdf(pdf_path):
     for page in doc:
         text += page.get_text()
 
+    doc.close()
+
     return text
+
+
+def extract_text_from_pdf(pdf_path):
+
+    return extract_text(pdf_path)

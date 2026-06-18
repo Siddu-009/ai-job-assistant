@@ -6,5 +6,6 @@ psycopg2-binary
 python-dotenv
 openai
 pymupdf
-python-dotenv
 requests
+reportlab
+python-jose[cryptography]
