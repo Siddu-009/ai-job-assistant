@@ -9,3 +9,4 @@ pymupdf
 requests
 reportlab
 python-jose[cryptography]
+email-validator

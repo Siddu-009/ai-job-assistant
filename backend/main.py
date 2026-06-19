@@ -22,6 +22,12 @@ from routes.skill_gap import router as skill_gap_router
 from routes.ats_score import router as ats_score_router
 from routes.resume_builder import router as resume_builder_router
 from routes.auto_resume import router as auto_resume_router
+from routes.extract_resume import router as extract_resume_router
+from routes.recommend_jobs import router as recommend_jobs_router
+from routes.saved_jobs import router as saved_jobs_router
+from routes.job_alerts import router as job_alerts_router
+from routes.admin import router as admin_router
+from routes.profile import router as profile_router
 
 app = FastAPI(
     title="AI Job Assistant",
@@ -148,6 +154,42 @@ app.include_router(
     auto_resume_router,
     prefix="/auto-resume",
     tags=["Auto ATS Resume"]
+)
+
+app.include_router(
+    extract_resume_router,
+    prefix="/extract-resume",
+    tags=["Resume Extraction"]
+)
+
+app.include_router(
+    recommend_jobs_router,
+    prefix="/recommend-jobs",
+    tags=["AI Recommendations"]
+)
+
+app.include_router(
+    saved_jobs_router,
+    prefix="/saved-jobs",
+    tags=["Saved Jobs"]
+)
+
+app.include_router(
+    job_alerts_router,
+    prefix="/job-alerts",
+    tags=["Job Alerts"]
+)
+
+app.include_router(
+    admin_router,
+    prefix="/admin",
+    tags=["Admin"]
+)
+
+app.include_router(
+    profile_router,
+    prefix="/profile",
+    tags=["Profile"]
 )
 
 @app.get("/")

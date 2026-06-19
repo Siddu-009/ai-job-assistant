@@ -36,3 +36,26 @@ CREATE TABLE IF NOT EXISTS applications (
     status VARCHAR(100),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE recommended_jobs (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER,
+    job_id INTEGER,
+    score INTEGER,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS saved_jobs (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER,
+    job_id INTEGER,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS user_alerts (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER,
+    email VARCHAR(255),
+    enabled BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
